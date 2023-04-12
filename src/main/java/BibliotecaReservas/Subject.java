@@ -14,10 +14,15 @@ class Subject implements ISubject {
         return reserva;
     }
 
-    public void setReserva(boolean _flag) {
-        this.reserva = _flag;
-        //flag value changed .So notify observer(s)
-        notifyObservers();
+    public void setReserva(boolean reserva, int opc) {
+        this.reserva = reserva;
+        if (reserva)
+            notifyObservers();
+        else
+            if(opc==2)
+                System.out.println("Devolucion realizada con exito\n");
+            else
+                System.out.println("Se ha extendido el plazo 15 dias mas. Recuerde devolverlo a tiempo\n");
     }
 
     @Override
